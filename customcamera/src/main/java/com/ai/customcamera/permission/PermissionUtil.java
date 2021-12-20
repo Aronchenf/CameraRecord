@@ -9,10 +9,18 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
+import java.util.Arrays;
+import java.util.List;
+
 @RequiresApi(api = Build.VERSION_CODES.M)
 public class PermissionUtil {
 
     public static boolean hasPermissions(Context context, String... permissions) {
+        List<String> permissionsList = Arrays.asList(permissions.clone());
+        return hasPermissions(context, permissionsList);
+    }
+
+    public static boolean hasPermissions(Context context, List<String> permissions) {
         if (isBelowM()) {
             return true;
         }

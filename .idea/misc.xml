@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/workspace/CameraRecord/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Android/workspace/CameraRecord/app/src/main/res/layout/activity_welcome.xml" value="0.12284701114488349" />
         <entry key="..\:/Android/workspace/CameraRecord/customcamera/src/main/res/drawable/dialog_bg_cancel.xml" value="0.1" />
         <entry key="..\:/Android/workspace/CameraRecord/customcamera/src/main/res/drawable/dialog_bg_confirm.xml" value="0.2109375" />
         <entry key="..\:/Android/workspace/CameraRecord/customcamera/src/main/res/layout/dialog_permission.xml" value="0.264" />
