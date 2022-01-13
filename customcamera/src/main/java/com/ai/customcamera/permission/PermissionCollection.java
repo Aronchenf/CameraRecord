@@ -1,6 +1,5 @@
 package com.ai.customcamera.permission;
 
-import android.app.Activity;
 import android.os.Build;
 
 import androidx.annotation.RequiresApi;

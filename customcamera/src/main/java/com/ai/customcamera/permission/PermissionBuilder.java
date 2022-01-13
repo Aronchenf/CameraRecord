@@ -30,7 +30,7 @@ public class PermissionBuilder {
 
     protected Set<String> grantedPermissions;
     protected Set<String> deniedPermissions;
-    protected Set<String> neverGrantedPermissions=new HashSet<>();
+    protected Set<String> neverGrantedPermissions = new HashSet<>();
 
     protected PermissionDialog mDialog;
 
@@ -42,7 +42,14 @@ public class PermissionBuilder {
             this.mActivity = fragment.getActivity();
         }
         initPermissionDialog();
-        requestPermissions(permissions);
+        if (!isBelowM()) {
+            requestPermissions(permissions);
+        }
+
+    }
+
+    private boolean isBelowM() {
+        return Build.VERSION.SDK_INT < Build.VERSION_CODES.M;
     }
 
     private void initPermissionDialog() {
@@ -74,9 +81,7 @@ public class PermissionBuilder {
         }
 
         String[] permissionAArray = permissionList.toArray(new String[permissionList.size()]);
-        if (!permissionList.isEmpty()) {
-            getFragment().requestPermission(PermissionBuilder.this, permissionAArray);
-        }
+        getFragment().requestPermission(PermissionBuilder.this, permissionAArray);
     }
 
     private FragmentManager getFragmentManager() {
@@ -103,6 +108,7 @@ public class PermissionBuilder {
 
     /**
      * 设置禁用权限后手动请求自定义对话框
+     *
      * @return
      */
     public PermissionBuilder setCustomDialog() {

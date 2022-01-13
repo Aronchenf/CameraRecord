@@ -26,6 +26,7 @@ public class InvisibleFragment extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.M)
     public void requestPermission(PermissionBuilder permissionBuilder, String[] permissions) {
         builder = permissionBuilder;
+        if(permissions.length>0)
         requestPermissions(permissions, REQUEST_CODE);
     }
 

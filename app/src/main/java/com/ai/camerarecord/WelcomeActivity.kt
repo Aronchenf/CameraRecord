@@ -3,6 +3,7 @@ package com.ai.camerarecord
 import android.Manifest
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.annotation.RequiresApi
 import com.ai.camerarecord.databinding.ActivityWelcomeBinding
 import com.ai.customcamera.base.BaseActivity
@@ -15,23 +16,34 @@ class WelcomeActivity : BaseActivity<ActivityWelcomeBinding>() {
     @RequiresApi(Build.VERSION_CODES.M)
     override fun initView(savedInstanceState: Bundle?) {
         super.initView(savedInstanceState)
-        if (PermissionUtil.hasPermissions(
-                this, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA,
-                Manifest.permission.READ_PHONE_STATE
+        PermissionUtil.init(this)
+            .permissions(
+                Manifest.permission.CAMERA,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.RECORD_AUDIO,
+                Manifest.permission.READ_PHONE_STATE,
+                Manifest.permission.MODIFY_AUDIO_SETTINGS,
+                Manifest.permission.RESTART_PACKAGES,
+                Manifest.permission.ACCESS_NETWORK_STATE,
+                Manifest.permission.CHANGE_WIFI_STATE,
+                Manifest.permission.ACCESS_WIFI_STATE,
+                Manifest.permission.VIBRATE,
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_LOCATION_EXTRA_COMMANDS
             )
-        ) {
-            this.goIntent(MainActivity())
-        } else {
-            PermissionUtil.init(this)
-                .permissions(
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA,
-                    Manifest.permission.READ_PHONE_STATE
-                ).result { isAllGranted, grantedList, deniedList ->
-                    if (isAllGranted) {
-                        this.goIntent(MainActivity())
-                    }
+            .result { isAllGranted, grantedList, deniedList ->
+                Log.e("TAG", "initView: $isAllGranted", )
+                if (isAllGranted) {
+                    Log.e("TAG", "initView: $isAllGranted", )
+                    this.goIntentWithSingleTask(MainActivity())
+                    this.finish()
+                } else {
+                    Log.e("TAG", "initView: $isAllGranted", )
+                    finish()
                 }
-        }
-
+            }
+//
     }
 }
