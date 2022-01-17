@@ -1,3 +1,5 @@
 rootProject.name = "CameraRecord"
 include ':app'
 include ':customcamera'
+include ':permission_lib'
+include ':fileselect_lib'

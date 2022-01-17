@@ -1,4 +1,4 @@
-package com.ai.customcamera.permission;
+package com.aronf.permission_lib;
 
 import android.os.Build;
 

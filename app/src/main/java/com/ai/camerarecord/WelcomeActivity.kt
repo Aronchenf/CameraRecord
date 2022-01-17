@@ -7,7 +7,7 @@ import android.util.Log
 import androidx.annotation.RequiresApi
 import com.ai.camerarecord.databinding.ActivityWelcomeBinding
 import com.ai.customcamera.base.BaseActivity
-import com.ai.customcamera.permission.PermissionUtil
+import com.aronf.permission_lib.PermissionUtil
 
 class WelcomeActivity : BaseActivity<ActivityWelcomeBinding>() {
 
@@ -34,7 +34,6 @@ class WelcomeActivity : BaseActivity<ActivityWelcomeBinding>() {
                 Manifest.permission.ACCESS_LOCATION_EXTRA_COMMANDS
             )
             .result { isAllGranted, grantedList, deniedList ->
-                Log.e("TAG", "initView: $isAllGranted", )
                 if (isAllGranted) {
                     Log.e("TAG", "initView: $isAllGranted", )
                     this.goIntentWithSingleTask(MainActivity())

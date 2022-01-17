@@ -1,4 +1,4 @@
-package com.ai.customcamera.permission;
+package com.aronf.permission_lib;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -8,13 +8,10 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class InvisibleFragment extends Fragment {
@@ -26,7 +23,6 @@ public class InvisibleFragment extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.M)
     public void requestPermission(PermissionBuilder permissionBuilder, String[] permissions) {
         builder = permissionBuilder;
-        if(permissions.length>0)
         requestPermissions(permissions, REQUEST_CODE);
     }
 
@@ -35,7 +31,7 @@ public class InvisibleFragment extends Fragment {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode,  String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == REQUEST_CODE) {
             Set<String> granted = new HashSet<>();

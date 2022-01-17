@@ -1,4 +1,4 @@
-package com.ai.customcamera.permission;
+package com.aronf.permission_lib;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.ai.customcamera.permission;
+package com.aronf.permission_lib;
 
 
 import android.content.Intent;
@@ -6,7 +6,6 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
-import android.view.View;
 
 import androidx.annotation.RequiresApi;
 import androidx.core.content.ContextCompat;
@@ -15,9 +14,11 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
 
 public class PermissionBuilder {
 
@@ -43,7 +44,12 @@ public class PermissionBuilder {
         }
         initPermissionDialog();
         if (!isBelowM()) {
-            requestPermissions(permissions);
+            if(permissions.size()<=0) {
+               callBack.result(true,new HashSet(Arrays.asList(permissions)),new HashSet<>());
+            }else {
+                requestPermissions(permissions);
+            }
+
         }
 
     }

@@ -1,4 +1,4 @@
-package com.ai.customcamera.permission;
+package com.aronf.permission_lib;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -15,7 +15,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentManager;
 
-import com.ai.customcamera.R;
 
 public class PermissionDialog extends DialogFragment implements View.OnClickListener {
 
